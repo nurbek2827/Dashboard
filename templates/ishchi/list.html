@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block title%}Ishchi|List{% endblock title%}
+
+
+{% block list%}
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-content">
+                        <div class="toolbar">
+                            <!--Here you can write extra buttons/actions for the toolbar-->
+                        </div>
+                        <table id="bootstrap-table" class="table">
+                            <thead>
+                            <th data-field="state">N</th>
+                            <th data-field="state">Ismi</th>
+                            <th data-field="state">Familiyasi</th>
+                            <th data-field="state">Actions</th>
+                            </th>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td></td>
+                                <td>1</td>
+                                <td>Dakota Rice</td>
+                                <td>$36,738</td>
+                                <td>Niger</td>
+                                <td>Oud-Turnhout</td>
+                                <td></td>
+                            </tr>
+                 <td class="text-center">2</td>
+                                    <td>John Doe</td>
+                                    <td>Design</td>
+                                    <td class="text-right">&euro; 89,241</td>
+                                    <td class="td-actions text-right">
+                                        <a href="#" rel="tooltip" title="View Profile" class="btn btn-info btn-simple btn-xs">
+                                            <i class="ti-user"></i>
+                                        </a>
+                                        <a href="#" rel="tooltip" title="Edit Profile" class="btn btn-success btn-simple btn-xs">
+                                            <i class="ti-pencil-alt"></i>
+                                        </a>
+                                        <a href="#" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-xs">
+                                            <i class="ti-close"></i>
+                                        </a>
+                                    </td>
+                            </tbody>
+                        </table>
+                    </div>
+                </div><!--  end card  -->
+            </div> <!-- end col-md-12 -->
+        </div> <!-- end row -->
+    </div>
+</div>
+{% endblock %}
+
