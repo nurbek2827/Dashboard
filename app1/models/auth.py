@@ -29,3 +29,31 @@ class User(AbstractBaseUser, PermissionsMixin):
     objects = CustomuserManager()
 
     USERNAME_FIELD = 'email'
+
+
+class OTP(models.Model):
+    key = models.CharField(max_length=512)
+    email = models.CharField(max_length=50)
+
+    is_conf = models.BooleanField(default=False)
+    is_expire = models.BooleanField(default=False)
+    tries = models.IntegerField(default=0)
+    extra = models.JSONField(default={})
+    step = models.CharField(max_length=25)
+    by = models.IntegerField(choices=[
+        (1, "Login"),
+        (2, "Register")
+    ])
+    created = models.DateTimeField(auto_now_add=True, editable=False)
+    updated = models.DateTimeField(auto_now=True, auto_now_add=False)
+
+    def save(self, *args, **kwargs):
+        if self.tries >= 3:
+            self.is_expire = True
+
+        return super(OTP, self).save(*args, **kwargs)
+
+    def __str__(self):
+        return f"{self.key}- {self.email}"
+
+

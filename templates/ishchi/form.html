@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block title %} Ishchi | Forms {% endblock %}
+
+
+{% block content %}
+
+<form  method="post" enctype="multipart/form-data" >
+    {% csrf_token %}
+  <label>First name: </label>
+  {{ form.name }}<br><br>
+  <label>Last name: </label>
+  {{ form.last_name }}<br><br>
+     <label>Yoshingiz: </label>
+  {{ form.age }}<br><br>
+     <label>Maoshingiz:</label>
+  {{ form.salary }}<br><br>
+     <label>Kasbingiz:</label>
+  {{ form.position }}<br><br>
+
+
+<div>
+ <a href="{% url 'get_ishchi'%}">
+        <button type="button" class="btn btn-wd btn-default  btn-move-left">
+        <span class="btn-label">
+            <i class="ti-angle-left"></i>
+        </span>
+            Orqaga
+        </button>
+    </a>
+
+   <a href="{% url 'add'%}">
+        <button type="submit" class="btn btn-wd btn-success btn-move-left">
+
+        <span class="btn-label">
+            <i class="fa fa-save"></i>
+        </span>
+            Saqlash
+        </button>
+
+   </a>
+    </div>
+    </form>
+{% endblock %}

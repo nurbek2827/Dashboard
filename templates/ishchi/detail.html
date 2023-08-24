@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+{% block title %} Ishchi | Detail {% endblock %}
+
+
+{% block content %}
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-content">
+                        <div class="toolbar">
+                            <!--Here you can write extra buttons/actions for the toolbar-->
+                        </div>
+                        <table id="bootstrap-table" class="table">
+                            <thead>
+                            <th data-field="state">Key</th>
+                            <th data-field="state">Value</th>
+
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>Ism</td>
+                                <td>{{ root.name }}</td>
+                            </tr>
+
+                            <tr>
+                                <td>Familya</td>
+                                <td>{{ root.last_name }}</td>
+                            </tr>
+
+                            <tr>
+                                <td>Yoshi</td>
+                                <td>{{ root.age }}</td>
+                            </tr>
+
+                            <tr>
+                                <td>Lavozim</td>
+                                <td>{{ root.position }}</td>
+                            </tr>
+
+                            <tr>
+                                <td>Maosh</td>
+                                <td>{{ root.salary }}</td>
+                            </tr>
+
+                            </tbody>
+                        </table>
+                        <a href="{% url 'get_ishchi'%}">
+                            <button type="button" class="btn btn-wd btn-default btn-fill btn-move-left">
+
+                            <span class="btn-label">
+                                <i class="ti-angle-left"></i>
+                            </span>
+                                Orqaga
+                            </button>
+                        </a>
+                        <a  href="{% url 'edit' pk=root.id %}">
+                            <button type="button" class="btn btn-wd btn-success btn-fill btn-move-left">
+
+                            <span class="btn-label">
+                                <i class="fa fa-edit"></i>
+                            </span>
+                                Tahrirlash
+                            </button>
+
+                            <a class="dropdown-item" href="" data-toggle="modal"
+                               data-target="#deleteModal">
+                                <button type="button" class="btn btn-wd btn-danger btn-fill btn-move-left">
+                            <span class="btn-label">
+                                <i class="fa fa-trash"></i>
+                            </span>
+                                    Delete
+                                </button>
+                            </a>
+                        </a>
+                    </div>
+                    </div><!--  end card  -->
+                </div> <!-- end col-md-12 -->
+            </div> <!-- end row -->
+        </div>
+    </div>
+
+    <!-- Logout Modal-->
+    <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Tasdiqlash!
+                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                            <i class="fa fa-times"></i>
+                        </button>
+                    </h5>
+                </div>
+                <div class="modal-body">Rostdan ham {{ root.name }} ni o'chirmoqchimisiz?</div>
+                <div class="modal-footer">
+                    <button class="btn btn-info" type="button" data-dismiss="modal">Yo'q</button>
+                    <a class="btn btn-danger" href="{% url 'delete' delete_id=root.id%}">O'chirish</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </body>
+
+
+    {% endblock %}

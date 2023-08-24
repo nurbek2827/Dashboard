@@ -7,7 +7,7 @@
     <link rel="icon" type="image/png" sizes="96x96" href="{% static 'assets/img/favicon.png'%}">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
 
-    <title>Paper Dashboard PRO by Creative Tim</title>
+    <title>{% block title %} {% endblock %}</title>
 
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport'/>
     <meta name="viewport" content="width=device-width"/>
@@ -39,7 +39,7 @@
             </a>
 
             <a href="http://www.creative-tim.com" class="simple-text logo-normal">
-                Creative Tim
+                Nurek Dev
             </a>
         </div>
         <div class="sidebar-wrapper">
@@ -113,7 +113,7 @@
                         </ul>
                     </div>
                 </li>
-                {% if request.user.is_conf and request.user.is_superuser %}
+                {% if request.user.is_superuser %}
                 <li>
                     <a data-toggle="collapse" href="#adminpanel">
                         <i class="ti-panel"></i>
@@ -204,7 +204,8 @@
             <div class="container-fluid">
                 <div class="row">
                     {% if request.user.permission %}
-                    {% block list%}
+                    {% block content%}
+                     <h1>Bu home html</h1>
                     {% endblock %}
                     {% else %}
                     <h3>Sizga bu sahifadan foydalanishga ruxsat yo'q!</h3>

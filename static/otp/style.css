@@ -1,0 +1,35 @@
+body {
+  background-image: url(../assets/img/background/background-3.jpg);
+}
+.text-color {
+  color: green;
+}
+.card {
+  width: 350px;
+  padding: 10px;
+  border-radius: 20px;
+  color: white;
+  border: none;
+  position: relative;
+}
+.container {
+  height: 100vh;
+}
+.mobile-text {
+  color: red;
+  font-size: 15px;
+}
+.form-control {
+  margin-right: 12px;
+  color: red;
+}
+.form-control:focus {
+  background-color: #d4efdf;
+  border-color: #c0392b;
+  outline: 0;
+  box-shadow: none;
+}
+.cursor {
+  cursor: pointer;
+  color: green;
+}
